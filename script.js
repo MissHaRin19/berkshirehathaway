@@ -60,3 +60,23 @@ const prevButton = document.querySelector('.prev-slide');
 const nextButton = document.querySelector('.next-slide');
 prevButton.addEventListener('click', prevSlide);
 nextButton.addEventListener('click', nextSlide);
+
+// Add touch event listeners to cards
+var cards = document.querySelectorAll('.card');
+
+// Function to add zoom effect
+function addZoomEffect() {
+    this.classList.add('active');
+}
+
+// Function to remove zoom effect
+function removeZoomEffect() {
+    this.classList.remove('active');
+}
+
+// Loop through each card and attach touch event listeners
+cards.forEach(function(card) {
+    card.addEventListener('touchstart', addZoomEffect);
+    card.addEventListener('touchend', removeZoomEffect);
+});
+
